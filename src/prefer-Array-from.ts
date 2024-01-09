@@ -1,7 +1,7 @@
 import { Rule } from "eslint";
 import { TSESTree } from "@typescript-eslint/experimental-utils";
 
-const arrayFromMapRule: Rule.RuleModule = {
+export const arrayFromMapRule: Rule.RuleModule = {
 	meta: {
 		type: "suggestion",
 		docs: {
