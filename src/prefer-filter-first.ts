@@ -1,42 +1,44 @@
 import { Rule } from "eslint";
-import { TSESTree } from "@typescript-eslint/experimental-utils";
 
-const mapFilterRule: Rule.RuleModule = {
+export const preferFilterFirstRule: Rule.RuleModule = {
 	meta: {
 		type: "suggestion",
 		docs: {
-			description: "Calling `filter` first reduces the amount of iterations on the `map`.",
+			description:
+				"Calling `filter` first reduces the amount of iterations on the `map`.",
 			category: "Best Practices",
 			recommended: true,
 		},
+		// fixable: "code",
 	},
 	create: (context) => ({
-		CallExpression(node: TSESTree.CallExpression) {
-			const { callee } = node;
-			if (
-				callee.type === "MemberExpression" &&
-				callee.property &&
-				callee.property.name === "filter" &&
-				callee.object &&
-				callee.object.type === "CallExpression" &&
-				callee.object.callee.property &&
-				callee.object.callee.property.name === "map"
-			) {
-				context.report({
-					node,
-					message: "Prefer using `.filter().map()` instead of `.map().filter()`.",
-					fix: (fixer) => {
-						const mapArguments = callee.object.arguments.map((arg) => context.getSourceCode().getText(arg));
-						const filterArguments = node.arguments.map((arg) => context.getSourceCode().getText(arg));
-						const replacement = `filter(${filterArguments[0]}).map(${mapArguments[0]})`;
-
-						return fixer.replaceText(node, replacement);
-					},
-				});
+		CallExpression(node) {
+			if (node.callee.type !== "MemberExpression") {
+				return;
 			}
+
+			const callee = node.callee;
+			if (
+				callee.property.type !== "Identifier" ||
+				callee.property.name !== "map"
+			) {
+				return;
+			}
+
+			const parent = node.parent;
+			if (
+				parent.type !== "MemberExpression" ||
+				parent.property.type !== "Identifier" ||
+				parent.property.name !== "filter"
+			) {
+				return;
+			}
+
+			context.report({
+				node: parent,
+				message:
+					"Prefer using `arr.filter(a => !a).map(a => a)` instead of `arr.map(a => a).filter(a => !a)` to reduce the iterations the `map` runs over.",
+			});
 		},
 	}),
-};
-export = {
-	mapFilterRule,
 };
