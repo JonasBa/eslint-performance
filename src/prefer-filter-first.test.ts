@@ -21,7 +21,6 @@ tester.run("prefer-filter-first", preferFilterFirstRule, {
 						"Prefer using `arr.filter(a => !a).map(a => a)` instead of `arr.map(a => a).filter(a => !a)` to reduce the iterations the `map` runs over.",
 				},
 			],
-			// output: "arr.filter(a => !a).map(a => a)",
 		},
 	],
 });
