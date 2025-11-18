@@ -2,6 +2,7 @@
   "name": "eslint-plugin-eslint-performance",
   "version": "0.1.0",
   "description": "ESLint plugin to detect performance anti-patterns and suggest optimizations",
+  "type": "module",
   "keywords": [
     "eslint",
     "eslintplugin",
@@ -16,7 +17,7 @@
   "types": "lib/index.d.ts",
   "exports": {
     ".": {
-      "require": "./lib/index.js",
+      "import": "./lib/index.js",
       "types": "./lib/index.d.ts"
     }
   },
