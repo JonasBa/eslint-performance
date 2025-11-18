@@ -1,17 +1,20 @@
 {
-  "name": "eslint-plugin-eslint-performance",
+  "name": "eslint-plugin-runtime-complexity",
   "version": "0.1.0",
-  "description": "ESLint plugin to detect performance anti-patterns and suggest optimizations",
+  "description": "ESLint plugin to detect runtime complexity issues that lead to poor performance",
   "type": "module",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin",
     "performance",
+    "runtime-complexity",
+    "algorithmic-complexity",
     "optimization",
     "reduce",
     "spread",
-    "array"
+    "array",
+    "big-o"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

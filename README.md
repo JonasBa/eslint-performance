@@ -1,20 +1,52 @@
-# eslint-plugin-eslint-performance
+# eslint-plugin-runtime-complexity
 
-ESLint plugin to detect performance anti-patterns and suggest optimizations.
+ESLint plugin to detect runtime complexity issues and algorithmic anti-patterns.
 
 ## Installation
 
 ```bash
-npm install --save-dev eslint-plugin-eslint-performance
+npm install --save-dev eslint-plugin-runtime-complexity
 ```
 
 ## Usage
 
-Add `eslint-performance` to the plugins section of your `.eslintrc` configuration file:
+### ESLint Flat Config (eslint.config.mjs)
+
+For ESLint 9+ with the flat config format:
+
+```javascript
+import runtimeComplexityPlugin from 'eslint-plugin-runtime-complexity';
+
+export default [
+  {
+    plugins: {
+      'runtime-complexity': runtimeComplexityPlugin
+    },
+    rules: {
+      'runtime-complexity/no-immutable-reduce': 'warn',
+      'runtime-complexity/no-unnecessary-array-spread': 'warn'
+    }
+  }
+];
+```
+
+Or use the recommended configuration:
+
+```javascript
+import runtimeComplexityPlugin from 'eslint-plugin-runtime-complexity';
+
+export default [
+  runtimeComplexityPlugin.configs.recommended
+];
+```
+
+### Legacy Config (.eslintrc)
+
+Add `runtime-complexity` to the plugins section of your `.eslintrc` configuration file:
 
 ```json
 {
-  "plugins": ["eslint-performance"]
+  "plugins": ["runtime-complexity"]
 }
 ```
 
@@ -23,19 +55,17 @@ Then configure the rules you want to use under the rules section:
 ```json
 {
   "rules": {
-    "eslint-performance/no-immutable-reduce": "warn",
-    "eslint-performance/no-unnecessary-array-spread": "warn"
+    "runtime-complexity/no-immutable-reduce": "warn",
+    "runtime-complexity/no-unnecessary-array-spread": "warn"
   }
 }
 ```
 
-### Using the recommended configuration
-
-Alternatively, you can use the recommended configuration which enables all rules with sensible defaults:
+Or use the recommended configuration:
 
 ```json
 {
-  "extends": ["plugin:eslint-performance/recommended"]
+  "extends": ["plugin:runtime-complexity/legacy"]
 }
 ```
 
