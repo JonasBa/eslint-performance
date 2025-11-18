@@ -21,15 +21,15 @@ tester.run("no-immutable-reduce",noImmutableReduceRule, {
         {code: `arr.reduce((acc, item) => {
             return [...acc, i]}
             , []);    
-            `, errors: [{message: "Exponential function - there is no need to spread the accumulator in a reduce function."}]},
+            `, errors: [{message: "Quadratic runtime - there is no need to spread the accumulator in a reduce function."}]},
             {code: `arr.reduce((acc, item) => {
                 return [...acc, i]
             }, [])
-            `, errors:  [{message: "Exponential function - there is no need to spread the accumulator in a reduce function."}]},
+            `, errors:  [{message: "Quadratic runtime - there is no need to spread the accumulator in a reduce function."}]},
             {code: `arr.reduce((acc, item) => {
                 const acc = [...acc, i];
                 return acc;
             }, [])
-            `,errors: [{message: "Exponential function - there is no need to spread the accumulator in a reduce function."}]},
+            `,errors: [{message: "Quadratic runtime - there is no need to spread the accumulator in a reduce function."}]},
         ]
     });

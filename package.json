@@ -1,20 +1,49 @@
 {
   "name": "eslint-plugin-eslint-performance",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "ESLint plugin to detect performance anti-patterns and suggest optimizations",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "performance",
+    "optimization",
+    "reduce",
+    "spread",
+    "array"
+  ],
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "exports": {
     ".": {
-      "require": "./lib/index.js"
+      "require": "./lib/index.js",
+      "types": "./lib/index.d.ts"
     }
   },
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build && npm test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonasBa/eslint-performance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JonasBa/eslint-performance/issues"
+  },
+  "homepage": "https://github.com/JonasBa/eslint-performance#readme",
   "author": "JonasBa <jonas.badalic@gmail.com>",
   "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">=7.0.0"
+  },
   "devDependencies": {
     "@types/eslint": "^8.37.0",
     "@types/jest": "^29.5.0",

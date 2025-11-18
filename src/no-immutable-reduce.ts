@@ -32,7 +32,7 @@ const noImmutableReduceRule: Rule.RuleModule = {
                             if(acc === arg.argument.name){
                                 context.report({
                                     node,
-                                    message: `Exponential function - there is no need to spread the accumulator in a reduce function.`,
+                                    message: `Quadratic runtime - there is no need to spread the accumulator in a reduce function.`,
                                 });
                             }
                         }
