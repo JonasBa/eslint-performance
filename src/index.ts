@@ -1,7 +1,7 @@
 import { Linter } from "eslint";
 
-import { noUnnecessaryArraySpreadRule } from "./no-unnecessary-array-spread";
-import { noImmutableReduceRule } from "./no-immutable-reduce";
+import { noUnnecessaryArraySpreadRule } from "./no-unnecessary-array-spread.js";
+import { noImmutableReduceRule } from "./no-immutable-reduce.js";
 
 export const rules = {
     "no-unnecessary-array-spread": noUnnecessaryArraySpreadRule,

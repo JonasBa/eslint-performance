@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-runtime-complexity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint plugin to detect runtime complexity issues that lead to poor performance",
   "type": "module",
   "keywords": [
