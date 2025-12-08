@@ -2,10 +2,12 @@ import { Linter } from "eslint";
 
 import { noUnnecessaryArraySpreadRule } from "./no-unnecessary-array-spread.js";
 import { noImmutableReduceRule } from "./no-immutable-reduce.js";
+import { noQuadraticLoopOperationsRule } from "./no-quadratic-loop-operations.js";
 
 export const rules = {
     "no-unnecessary-array-spread": noUnnecessaryArraySpreadRule,
     "no-immutable-reduce": noImmutableReduceRule,
+    "no-quadratic-loop-operations": noQuadraticLoopOperationsRule,
 };
 
 // Legacy config format for .eslintrc
@@ -14,6 +16,7 @@ const legacyRecommended: Linter.BaseConfig = {
     rules: {
         "runtime-complexity/no-unnecessary-array-spread": "warn",
         "runtime-complexity/no-immutable-reduce": "warn",
+        "runtime-complexity/no-quadratic-loop-operations": "warn",
     },
 };
 
@@ -25,6 +28,7 @@ const flatRecommended: Linter.FlatConfig = {
     rules: {
         "runtime-complexity/no-unnecessary-array-spread": "warn",
         "runtime-complexity/no-immutable-reduce": "warn",
+        "runtime-complexity/no-quadratic-loop-operations": "warn",
     },
 };
 
