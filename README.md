@@ -1,11 +1,11 @@
-# eslint-plugin-runtime-complexity
+# @eslint-performance/plugin-runtime-complexity
 
 ESLint plugin to detect runtime complexity issues and algorithmic anti-patterns.
 
 ## Installation
 
 ```bash
-npm install --save-dev eslint-plugin-runtime-complexity
+npm install --save-dev @eslint-performance/plugin-runtime-complexity
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install --save-dev eslint-plugin-runtime-complexity
 For ESLint 9+ with the flat config format:
 
 ```javascript
-import runtimeComplexityPlugin from 'eslint-plugin-runtime-complexity';
+import runtimeComplexityPlugin from '@eslint-performance/plugin-runtime-complexity';
 
 export default [
   {
@@ -33,7 +33,7 @@ export default [
 Or use the recommended configuration:
 
 ```javascript
-import runtimeComplexityPlugin from 'eslint-plugin-runtime-complexity';
+import runtimeComplexityPlugin from '@eslint-performance/plugin-runtime-complexity';
 
 export default [
   runtimeComplexityPlugin.configs.recommended

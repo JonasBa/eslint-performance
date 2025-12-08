@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-runtime-complexity",
+  "name": "@eslint-performance/plugin-runtime-complexity",
   "version": "0.1.1",
   "description": "ESLint plugin to detect runtime complexity issues that lead to poor performance",
   "type": "module",
@@ -33,7 +33,10 @@
     "build": "tsc -p tsconfig.json",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "publish:plugin": "npm publish",
+    "publish:runner": "cd runner && npm publish",
+    "publish:all": "npm run publish:plugin && npm run publish:runner"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,43 @@
+{
+  "name": "eslint-performance",
+  "version": "0.1.0",
+  "description": "Standalone runner for ESLint performance analysis - detects runtime complexity issues",
+  "type": "module",
+  "bin": {
+    "eslint-performance": "./bin/cli.js"
+  },
+  "keywords": [
+    "eslint",
+    "performance",
+    "runtime-complexity",
+    "algorithmic-complexity",
+    "optimization",
+    "cli",
+    "linter"
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonasBa/eslint-performance.git",
+    "directory": "runner"
+  },
+  "bugs": {
+    "url": "https://github.com/JonasBa/eslint-performance/issues"
+  },
+  "homepage": "https://github.com/JonasBa/eslint-performance#readme",
+  "author": "JonasBa <jonas.badalic@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@eslint-performance/plugin-runtime-complexity": "^0.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
