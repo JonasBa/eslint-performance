@@ -75,6 +75,7 @@ export async function run(paths, flags = {}) {
     baseConfig: createConfig(paths),
     ignore: false, // Don't use .eslintignore files
     errorOnUnmatchedPattern: false,
+    allowInlineConfig: false, // Ignore eslint-disable comments
   });
 
   // Lint files
