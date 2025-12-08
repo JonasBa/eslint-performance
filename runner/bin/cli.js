@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { run } from '../lib/runner.js';
+import { run } from './runner.js';
 
 const args = process.argv.slice(2);
 
