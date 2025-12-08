@@ -103,6 +103,52 @@ npx eslint-performance src/ || exit 1
 2 problems found in 1 file
 ```
 
+## Relationship with the Plugin Package
+
+This runner is a **standalone CLI tool** that provides a zero-configuration way to check your code for performance issues. It uses the [`@eslint-performance/plugin-runtime-complexity`](https://www.npmjs.com/package/@eslint-performance/plugin-runtime-complexity) ESLint plugin under the hood, with all rules pre-configured.
+
+### Runner vs Plugin: Which to Use?
+
+**Use this runner** (`eslint-performance`) when:
+- You want quick, one-off performance checks without configuration
+- You don't have ESLint set up or want separate performance checks
+- You're running checks in CI/CD without modifying your ESLint config
+- You prefer the convenience of `npx` for ad-hoc analysis
+
+**Use the plugin** (`@eslint-performance/plugin-runtime-complexity`) when:
+- You have an existing ESLint setup and want to integrate performance checks
+- You need to customize rule configurations or severity levels
+- You want to disable specific rules while keeping others
+- You want performance checks to run automatically with your regular linting
+
+## Installation (Optional)
+
+**We recommend using `npx` instead of installing** - it's simpler, always gives you the latest version, and doesn't clutter your dependencies:
+
+```bash
+# Recommended: Use npx (no installation needed)
+npx eslint-performance
+
+# Only install if you really need it globally
+npm install -g eslint-performance
+```
+
+If you must add it as a dev dependency:
+
+```bash
+npm install --save-dev eslint-performance
+```
+
+Then add to your `package.json` scripts:
+
+```json
+{
+  "scripts": {
+    "check:perf": "eslint-performance src/"
+  }
+}
+```
+
 ## When to Use
 
 Use this tool when you want:
@@ -112,11 +158,7 @@ Use this tool when you want:
 - CI/CD performance checks
 - Pre-commit performance validation
 
-For ongoing development with custom ESLint configs, consider using the [@eslint-performance/plugin-runtime-complexity](https://www.npmjs.com/package/@eslint-performance/plugin-runtime-complexity) plugin directly.
-
-## Related
-
-- [@eslint-performance/plugin-runtime-complexity](https://www.npmjs.com/package/@eslint-performance/plugin-runtime-complexity) - The ESLint plugin this runner uses
+For ongoing development with custom ESLint configs, use the plugin directly.
 
 ## License
 
